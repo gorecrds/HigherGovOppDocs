@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HigherGov Bid Downloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+<main class="wrap">
+  <h1>HigherGov Bid Downloader</h1>
+  <p class="sub">Local application · Save to <span id="root">{{ root }}</span></p>
+  <section class="panel">
+    <div class="form">
+      <div>
+        <label for="bid_id">Bid ID or HigherGov link</label>
+        <input id="bid_id" placeholder="e.g. SFGOV-0000011902 or https://www.highergov.com/...">
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="find">Find Bid</button>
+      <button id="download" class="secondary" disabled>Download All</button>
+      <button id="createOdoo" class="odoo-button" disabled>Create Opportunity in Odoo</button>
+    </div>
+    <div id="status" class="status">Enter a bid ID to begin.</div>
+    <div id="odooStatus" class="status" aria-live="polite">Checking Odoo configuration...</div>
+    <div id="odooLink" class="bid-link"></div>
+  </section>
+  <section class="panel">
+    <h2>Available bid information</h2>
+    <div id="bidLink" class="bid-link"></div>
+    <div id="details">Search for a bid to see the fields returned by HigherGov.</div>
+  </section>
+  <section class="panel">
+    <h2>Available documents</h2>
+    <div id="documents">Document records will appear here after lookup.</div>
+  </section>
+  <section class="panel">
+    <h2>Download activity</h2>
+    <div id="log" class="log" aria-live="polite">Waiting for activity...</div>
+  </section>
+</main>
+</body>
+</html>
